@@ -3,7 +3,6 @@ package org.acme;
 import java.io.IOException;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -41,7 +40,7 @@ public class ApplicationService {
     @Path("/stress")
     public String stress() {
         for (int thread = 0; thread < numCore * numThreadsPerCore; thread++) {
-            System.out.println("launching locking thread....");
+            System.out.println("launch locking thread....");
             new BusyThread("Thread" + thread, load, duration).start();
         }
         return "Stress test in place, wait for autoscaling to trigger..";
