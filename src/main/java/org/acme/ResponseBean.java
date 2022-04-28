@@ -4,7 +4,7 @@ import javax.enterprise.context.RequestScoped;
 
 @RequestScoped
 public class ResponseBean {
-    private String sessionName;
+    private String emeaOpenDemoSession;
     private String hostName;
     private Long pid;
     private String userId;
@@ -17,17 +17,17 @@ public class ResponseBean {
         this("VARIABLE IS NOT DEFINED");
     }
 
-    public ResponseBean(String sessionName) {
-        this.sessionName = sessionName;
+    public ResponseBean(String emeaOpenDemoSession) {
+        this.emeaOpenDemoSession = emeaOpenDemoSession;
     }
 
-    public void setSessionName(String sessionName) {
-        if (sessionName != null)
-            this.sessionName = sessionName;
+    public void setSessionName(String emeaOpenDemoSession) {
+        if (emeaOpenDemoSession != null)
+            this.emeaOpenDemoSession = emeaOpenDemoSession;
     }
 
     public String getSessionName() {
-        return this.sessionName;
+        return this.emeaOpenDemoSession;
     }
 
     public void setSecretContent(String secretContent) {
