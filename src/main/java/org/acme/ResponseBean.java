@@ -12,6 +12,7 @@ public class ResponseBean {
     private String osVersion;
     private String osArchitecture;
     private String secretContent;
+    private String applicationProperty;
 
     public ResponseBean() {
         this("VARIABLE IS NOT DEFINED");
@@ -85,4 +86,13 @@ public class ResponseBean {
     public void setOsArchitecture(String osArchitecture) {
         this.osArchitecture = osArchitecture;
     }
+
+    public String getApplicationProperty() {
+        return applicationProperty;
+    }
+
+    public void setApplicationProperty(String applicationProperty) {
+        this.applicationProperty = applicationProperty;
+    }
+
 }
