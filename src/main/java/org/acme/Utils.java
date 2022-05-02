@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import javax.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import io.quarkus.logging.Log;
 
 @ApplicationScoped
 public class Utils {
@@ -21,8 +22,8 @@ public class Utils {
         Process process = runtime.exec(command);
         process.waitFor();
         BufferedReader buf = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String uid = buf.readLine();
-        return uid;
+        return buf.readLine();
+        
     }
 
     public String getGid(String username) throws InterruptedException, IOException {
@@ -31,8 +32,7 @@ public class Utils {
         Process process = runtime.exec(command);
         process.waitFor();
         BufferedReader buf = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String uid = buf.readLine();
-        return uid;
+        return buf.readLine();
     }    
 
     public String getSecretContent() {
@@ -40,7 +40,7 @@ public class Utils {
         try {
             Path secretPath = Paths.get(secretFile);
             String content = new String(Files.readAllBytes(secretPath));
-            System.out.println(content);
+            Log.info(content);
             return content;
         } catch (IOException e) {
             return "CONFIGURATION FILE NOT FOUND";

@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import io.quarkus.logging.Log;
 
 @ApplicationScoped
 @Path("")
@@ -40,7 +41,7 @@ public class ApplicationService {
     @Path("/stress")
     public String stress() {
         for (int thread = 0; thread < numCore * numThreadsPerCore; thread++) {
-            System.out.println("launch locking thread....");
+            Log.info("launch locking thread....");
             new BusyThread("Thread" + thread, load, duration).start();
         }
         return "Stress test in place, wait for autoscaling to trigger..";
