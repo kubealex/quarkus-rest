@@ -20,7 +20,6 @@ public class BusyThread extends Thread {
                     try {
                         Thread.sleep((long) Math.floor((1 - load) * 100));
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
