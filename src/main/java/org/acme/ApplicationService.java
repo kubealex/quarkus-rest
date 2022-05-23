@@ -26,7 +26,7 @@ public class ApplicationService {
     Double load;
     @ConfigProperty(name = "cpu.testDuration", defaultValue = "60000")
     Long duration;
-// trigger test
+
     @GET
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,6 +37,12 @@ public class ApplicationService {
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(responseBean);
     }
 
+    @GET
+    @Path("/awesome-demo")
+    public String demo() {
+        return "This is an awesome demo!";
+    }
+    
     @GET
     @Path("/stress")
     public String stress() {
