@@ -26,7 +26,7 @@ public class ApplicationService {
     Double load;
     @ConfigProperty(name = "cpu.testDuration", defaultValue = "60000")
     Long duration;
-
+// trigger test
     @GET
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
