@@ -10,12 +10,12 @@ import io.smallrye.mutiny.Uni;
 @Readiness
 @ApplicationScoped
 public class ReadinessHealthCheck implements AsyncHealthCheck {
-    @ConfigProperty(name = "readyness.delay", defaultValue = "1")
-    private Long readynessDelay;
+    @ConfigProperty(name = "readiness.delay", defaultValue = "1")
+    private Long readinessDelay;
 
     @Override
         public Uni<HealthCheckResponse> call() {
             return Uni.createFrom().item(HealthCheckResponse.up("quarkus-rest-reactive"))
-                    .onItem().delayIt().by(Duration.ofMillis(readynessDelay));
+                    .onItem().delayIt().by(Duration.ofMillis(readinessDelay));
         }    
     }
