@@ -40,7 +40,7 @@ public class ApplicationService {
     @GET
     @Path("/awesome-demo")
     public String demo() {
-        return "This is an awesome demo!";
+        return "This is an awesome demo! And this is something that I am going to add here! ";
     }
     
     @GET
